@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import LogoTitle from '../../assets/images/logo-v.png';
 import AnimatedLetters from '../AnimatedLetters';
+import Logo from './Logo';
 import './index.scss';
 
 const Home = () => {
@@ -11,14 +12,9 @@ const Home = () => {
   const jobArray = ['W', 'e', 'b', ' ', 'D', 'e', 'v', 'e', 'l', 'o', 'p', 'e', 'r', '.'];
 
   useEffect(() => {
-        
-    let timeoutId = setTimeout(() => {
-        setLetterClass('text-animate-hover')
+    setTimeout(() => {
+      return setLetterClass('text-animate-hover')
     }, 4000)
-    
-    return () => {
-                clearTimeout(timeoutId)
-            }
   }, [])
 
   return (
@@ -29,7 +25,7 @@ const Home = () => {
           <br />
           <span className={`${letterClass} _13`}>I</span>
           <span className={`${letterClass} _14`}>'m</span>
-          <img src={LogoTitle} alt='developer' />
+          <img src={LogoTitle} alt='V' />
           <AnimatedLetters letterClass={letterClass} strArray={nameArray} idx={15} />
           <br />
           <AnimatedLetters letterClass={letterClass} strArray={jobArray} idx={19} />
@@ -37,6 +33,7 @@ const Home = () => {
         <h2>Front-End Web Developer | HTML | CSS | JavaScript | React | SQL | Jest</h2>
         <Link to='/contact' className='flat-button'>CONTACT ME</Link>
       </div>
+      <Logo />
     </div>
   );
 };
