@@ -37,17 +37,7 @@ const Logo = () => {
   };
 
   useEffect(() => {
-    window.onpageshow = (event) => {
-      if (event.persisted) {
-        window.location.reload();
-      }
-    };
-
     window.onload = animateLogo;
-
-    return () => {
-      window.onpageshow = null;
-    };
   }, []);
 
   return (
