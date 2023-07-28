@@ -16,8 +16,8 @@
   animation-iteration-count: infinite;
   animation-duration: 20s;
   transform-style: preserve-3d;
-  transform-origin: 100px 100px;
-  margin-left: calc(50% - 250px);
+  transform-origin: 200px 200px;
+  margin-left: calc(50% - 200px);
 
   div {
     position: absolute;
@@ -25,7 +25,7 @@
     height: 400px;
     border: 1px solid #ccc;
     background: rgb(240, 230, 255);
-    font-size: 100px;
+    font-size: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,7 +65,7 @@
     transform: rotateY(-90deg);
   }
   33% {
-    transform: rotateY(-99deg) rotateZ(90deg);
+    transform: rotateY(-90deg) rotateZ(90deg);
   }
   50% {
     transform: rotateY(-180deg) rotateZ(90deg);

@@ -2,10 +2,10 @@ import './index.scss';
 import AnimatedLetters from '../AnimatedLetters';
 import { useEffect, useState } from 'react';
 import foto1 from '../../assets/images/foto1.jpg';
-import foto2 from '../../assets/images/foto2.jpeg';
+import foto2 from '../../assets/images/foto2.jpg';
 import foto3 from '../../assets/images/foto3.jpeg';
 import foto4 from '../../assets/images/foto4.jpg';
-import foto5 from '../../assets/images/foto5.jpg';
+import foto5 from '../../assets/images/foto5.jpeg';
 import foto6 from '../../assets/images/foto6.jpeg';
 import Loader from 'react-loaders';
 
@@ -28,7 +28,6 @@ const About = () => {
               strArray={['A', 'b', 'o', 'u', 't', ' ', 'm', 'e']}
               idx={15}
             />
-
           </h1>
           <p>
             Since childhood, technology has been my constant fascination, igniting my imagination and making the impossible feel attainable. Growing up on a remote farm, far from worldly luxuries, only fueled my determination to explore, connect, and embrace new cultures. Web development became the perfect path to combine my passions, allowing me to chase my dreams while doing what I love.
@@ -40,7 +39,6 @@ const About = () => {
             In conclusion, my journey has been driven by an unwavering passion for technology and a commitment to excellence. As a skilled web developer, I am eager to contribute my unique blend of creativity, adaptability, and dedication to your projects. Let's connect and explore how I can bring my skills and enthusiasm to elevate your team and create exceptional digital experiences. Reach out to me through the contact details on this portfolio, and together, let's turn your vision into reality, making a meaningful impact in the world of technology.
           </p>
         </div>
-
         <div className='stage-cube-cont'>
           <div className='cubespinner'>
             <div className='face1'>

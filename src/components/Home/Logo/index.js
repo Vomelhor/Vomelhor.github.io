@@ -1,6 +1,6 @@
 import './index.scss';
 import LogoV from '../../../assets/images/logo-v.png';
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import DrawSVGPlugin from 'gsap-trial/DrawSVGPlugin';
 import gsap from 'gsap-trial';
 
@@ -36,9 +36,7 @@ const Logo = () => {
     );
   };
 
-  useEffect(() => {
-    window.onload = animateLogo;
-  }, []);
+  window.onload = animateLogo;
 
   return (
     <div className='logo-container' ref={bgRef}>

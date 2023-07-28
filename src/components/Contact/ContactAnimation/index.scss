@@ -1,0 +1,73 @@
+@keyframes moveUpAnimation {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-2000px);
+  }
+}
+
+@keyframes hideAnimation {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.rocket-container {
+  position: relative;
+  left: 50%;
+  width: 100%;
+  height: 110vh;
+
+  #rocket1 {
+    position: absolute;
+    bottom: 0;
+    width: 100px;
+    height: 200px;
+    transform: translateX(-50%);
+    animation: moveUpAnimation 5s linear infinite, hideAnimation 5s linear infinite;
+  }
+
+  #rocket3 {
+    position: absolute;
+    bottom: 0;
+    left: 10%;
+    width: 100px;
+    height: 200px;
+    transform: translateX(-50%);
+    animation: moveUpAnimation 3.6s linear infinite, hideAnimation 3.6s linear infinite;
+  }
+
+  #rocket5 {
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    width: 100px;
+    height: 200px;
+    transform: translateX(-50%);
+    animation: moveUpAnimation 3s linear infinite, hideAnimation 3s linear infinite;
+  }
+  
+  #rocket7 {
+    position: absolute;
+    bottom: 0;
+    left: 30%;
+    width: 100px;
+    height: 200px;
+    transform: translateX(-50%);
+    animation: moveUpAnimation 3.4s linear infinite, hideAnimation 3.4s linear infinite;
+  }
+  
+  #rocket9 {
+    position: absolute;
+    bottom: 0;
+    left: 40%;
+    width: 100px;
+    height: 200px;
+    transform: translateX(-50%);
+    animation: moveUpAnimation 4s linear infinite, hideAnimation 4s linear infinite;
+  }
+}
