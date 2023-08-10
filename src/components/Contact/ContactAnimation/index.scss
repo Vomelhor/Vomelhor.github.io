@@ -29,6 +29,7 @@
     height: 200px;
     transform: translateX(-50%);
     animation: moveUpAnimation 5s linear infinite, hideAnimation 5s linear infinite;
+    animation-delay: 3s;
   }
 
   #rocket3 {
@@ -39,6 +40,7 @@
     height: 200px;
     transform: translateX(-50%);
     animation: moveUpAnimation 3.6s linear infinite, hideAnimation 3.6s linear infinite;
+    animation-delay: 3s;
   }
 
   #rocket5 {
@@ -49,6 +51,7 @@
     height: 200px;
     transform: translateX(-50%);
     animation: moveUpAnimation 3s linear infinite, hideAnimation 3s linear infinite;
+    animation-delay: 3s;
   }
   
   #rocket7 {
@@ -59,6 +62,7 @@
     height: 200px;
     transform: translateX(-50%);
     animation: moveUpAnimation 3.4s linear infinite, hideAnimation 3.4s linear infinite;
+    animation-delay: 3s;
   }
   
   #rocket9 {
@@ -69,5 +73,6 @@
     height: 200px;
     transform: translateX(-50%);
     animation: moveUpAnimation 4s linear infinite, hideAnimation 4s linear infinite;
+    animation-delay: 3s;
   }
 }
