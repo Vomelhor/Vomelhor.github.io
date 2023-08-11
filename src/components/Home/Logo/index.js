@@ -1,42 +1,12 @@
 import './index.scss';
 import LogoV from '../../../assets/images/logo-v.png';
 import { useEffect, useRef } from 'react';
-import DrawSVGPlugin from 'gsap-trial/DrawSVGPlugin';
-import gsap from 'gsap-trial';
+import gsap from 'gsap';
 
 const Logo = () => {
   const bgRef = useRef();
   const outlineLogoRef = useRef();
   const solidLogoRef = useRef();
-
-  const animateLogo = () => {
-    gsap.registerPlugin(DrawSVGPlugin);
-
-    gsap
-      .timeline()
-      .to(bgRef.current, {
-        duration: 1,
-        opacity: 1,
-      })
-      .from(outlineLogoRef.current, {
-        drawSVG: 0,
-        duration: 40,
-      });
-
-    gsap.fromTo(
-      solidLogoRef.current,
-      {
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-        delay: 4,
-        duration: 3,
-      }
-    );
-  };
-
-  window.onload = animateLogo;
 
   useEffect(() => {
     gsap
