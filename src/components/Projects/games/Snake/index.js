@@ -6,11 +6,10 @@ const CELL = 20;
 const INITIAL_SPEED = 140;
 
 const randomFood = (snake) => {
-  let pos;
-  do {
-    pos = { x: Math.floor(Math.random() * GRID), y: Math.floor(Math.random() * GRID) };
-  } while (snake.some((s) => s.x === pos.x && s.y === pos.y));
-  return pos;
+  while (true) {
+    const pos = { x: Math.floor(Math.random() * GRID), y: Math.floor(Math.random() * GRID) };
+    if (!snake.some((s) => s.x === pos.x && s.y === pos.y)) return pos;
+  }
 };
 
 const Snake = () => {
