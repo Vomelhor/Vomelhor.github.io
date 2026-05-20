@@ -1,0 +1,74 @@
+.ttt-game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.ttt-status {
+  font-family: sans-serif;
+  color: #aaa;
+  font-size: 14px;
+  letter-spacing: 1px;
+  margin: 0;
+
+  &:hover {
+    font-size: 14px;
+  }
+}
+
+.ttt-board {
+  display: grid;
+  grid-template-columns: repeat(3, 80px);
+  grid-template-rows: repeat(3, 80px);
+  gap: 6px;
+}
+
+.ttt-cell {
+  width: 80px;
+  height: 80px;
+  background: #1a1a2e;
+  border: 1px solid rgba(137, 66, 249, 0.25);
+  border-radius: 6px;
+  font-size: 28px;
+  font-weight: 700;
+  cursor: pointer;
+  color: #fff;
+  transition: background 0.15s, border-color 0.15s;
+
+  &:hover:not(:disabled) {
+    background: rgba(137, 66, 249, 0.1);
+    border-color: rgba(137, 66, 249, 0.5);
+  }
+
+  &.ttt-x {
+    color: #c084fc;
+  }
+
+  &.ttt-o {
+    color: #4d4d4e;
+  }
+
+  &.ttt-win {
+    background: rgba(137, 66, 249, 0.2);
+    border-color: #8942f9;
+  }
+}
+
+.ttt-reset {
+  background: transparent;
+  border: 1px solid #8942f9;
+  color: #8942f9;
+  font-size: 11px;
+  letter-spacing: 3px;
+  padding: 7px 16px;
+  cursor: pointer;
+  text-transform: uppercase;
+  border-radius: 3px;
+  transition: background 0.15s, color 0.15s;
+
+  &:hover {
+    background: #8942f9;
+    color: #fff;
+  }
+}

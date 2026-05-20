@@ -31,13 +31,13 @@ const About = () => {
             />
           </h1>
           <p>
-            Since childhood, technology has been my constant fascination, igniting my imagination and making the impossible feel attainable. Growing up on a remote farm, far from worldly luxuries, only fueled my determination to explore, connect, and embrace new cultures. Web development became the perfect path to combine my passions, allowing me to chase my dreams while doing what I love.
+            Technology has fascinated me since childhood — growing up on a remote farm with a dial-up connection and big ambitions. That early curiosity turned into a career building full-stack applications that actually work: clean APIs, solid databases, and frontends people enjoy using. I write TypeScript on both sides of the stack, reach for React when the UI needs it, and reach for Node.js when it doesn't.
           </p>
           <p>
-            Living in England at 14 was a transformative experience that taught me resilience and adaptability. Overcoming cultural barriers and learning a new language showed me the power of perseverance and the boundless potential of continuous self-improvement. Today, armed with strong people skills, empathy, and an eye for perfection, I find fulfillment in crafting seamless digital experiences that enhance people's lives.
+            Moving to England at 14 taught me to adapt fast and communicate clearly — skills that turn out to matter just as much in engineering as they do anywhere else. Today I design and ship systems end-to-end: from schema design in PostgreSQL to containerised services in Docker to infrastructure on AWS. I care about reliability and the kind of code a future teammate won't curse you for.
           </p>
           <p>
-            In conclusion, my journey has been driven by an unwavering passion for technology and a commitment to excellence. As a skilled web developer, I am eager to contribute my unique blend of creativity, adaptability, and dedication to your projects. Let's connect and explore how I can bring my skills and enthusiasm to elevate your team and create exceptional digital experiences. Reach out to me through the <Link to='/contact'>contact</Link> details on this portfolio, and together, let's turn your vision into reality, making a meaningful impact in the world of technology.
+            I'm always looking for interesting problems to work on and people who take craft seriously. If that sounds like your team, let's talk — check out the <Link to='/contact'>contact</Link> page and reach out.
           </p>
         </div>
         <div className='stage-cube-cont'>
