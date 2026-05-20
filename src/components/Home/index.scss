@@ -81,3 +81,42 @@
     }
   }
 }
+
+// ─── Mobile ──────────────────────────────────────────────────────────────────
+@media (max-width: 768px) {
+  .home-page {
+    .text-zone {
+      position: static;
+      width: auto;
+      transform: none;
+      left: auto;
+      top: auto;
+      text-align: center;
+      padding: 60px 28px 40px;
+      max-height: none;
+    }
+
+    h1 {
+      font-size: 38px;
+
+      &::before,
+      &::after {
+        display: none;
+      }
+
+      img {
+        width: 56px;
+      }
+    }
+
+    h2 {
+      font-size: 11px;
+      letter-spacing: 2px;
+    }
+
+    .flat-button {
+      float: none;
+      display: inline-block;
+    }
+  }
+}

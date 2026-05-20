@@ -6,11 +6,11 @@
   top: 0;
   z-index: 3;
   min-height: 500px;
-  
+
   .logo {
     display: block;
     padding: 8px 0;
-  
+
     img {
       display: block;
       margin: 0 auto;
@@ -116,6 +116,66 @@
 
       &:hover svg {
         color: rgb(137, 66, 249);
+      }
+    }
+  }
+}
+
+// ─── Mobile: sidebar becomes a fixed bottom tab bar ───────────────────────────
+@media (max-width: 768px) {
+  .nav-bar {
+    width: 100%;
+    height: 56px;
+    min-height: unset;
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-top: 1px solid rgba(137, 66, 249, 0.2);
+    z-index: 100;
+
+    .logo {
+      display: none;
+    }
+
+    nav {
+      position: static;
+      height: 56px;
+      width: auto;
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      margin: 0;
+
+      a {
+        height: 56px;
+        line-height: 56px;
+        font-size: 20px;
+
+        &:after {
+          display: none;
+        }
+      }
+    }
+
+    ul {
+      position: static;
+      bottom: auto;
+      width: auto;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0 16px;
+      margin: 0;
+
+      li {
+        padding: 0 8px;
+        line-height: 56px;
       }
     }
   }

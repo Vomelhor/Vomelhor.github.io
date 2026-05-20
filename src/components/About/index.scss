@@ -1,3 +1,34 @@
+// ─── Mobile: horizontal scrolling photo strip ─────────────────────────────────
+@media (max-width: 768px) {
+  .photo-mosaic {
+    position: relative;
+    width: 100%;
+    height: auto;
+    right: auto;
+    top: auto;
+    bottom: auto;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    gap: 12px;
+    padding: 8px 24px 28px;
+    &::-webkit-scrollbar { display: none; }
+  }
+
+  .photo-item {
+    position: static !important;
+    transform: none !important;
+    flex: 0 0 130px;
+    height: 155px;
+    opacity: 1 !important;
+    animation: none !important;
+
+    &:hover {
+      transform: scale(1.04) !important;
+    }
+  }
+}
+
 .photo-mosaic {
   position: absolute;
   right: 0;

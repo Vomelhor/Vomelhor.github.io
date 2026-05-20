@@ -17,7 +17,7 @@
   left: 120px;
   font-size: 18px;
   font-family: 'La Belle Aurore', cursive;
-  margin-left: -15px
+  margin-left: -15px;
 }
 
 .bottom-tag-html {
@@ -39,10 +39,28 @@
   animation-delay: 1s;
 }
 
+// Only about + contact get the large body-text p rule.
+// Projects manages its own paragraph sizes to avoid specificity conflicts with game UI.
+.about-page,
+.contact-page {
+  p {
+    font-size: 16px;
+    line-height: 1.7;
+    text-align: justify;
+    color: #fff;
+    font-family: sans-serif;
+    font-weight: 300;
+    animation: pulse 1s;
+
+    &:nth-of-type(1) { animation-delay: 1.1s; }
+    &:nth-of-type(2) { animation-delay: 1.2s; }
+    &:nth-of-type(3) { animation-delay: 1.3s; }
+  }
+}
+
 .about-page,
 .projects-page,
 .contact-page {
-  
   h1 {
     font-size: 53px;
     font-family: 'Coolvetica', sans-serif;
@@ -77,27 +95,6 @@
     }
   }
 
-  p {
-    font-size: large;
-    text-align: justify;
-    color: #fff;
-    font-family: sans-serif;
-    font-weight: 300;
-    min-width: fit-content;
-    animation: pulse 1s;
-
-    &:nth-of-type(1) {
-      animation-delay: 1.1s;
-    }
-    &:nth-of-type(2) {
-      animation-delay: 1.2s;
-    }
-    &:nth-of-type(3) {
-      animation-delay: 1.3s;
-    }
-
-  }
-
   .text-zone {
     position: absolute;
     left: 10%;
@@ -112,6 +109,49 @@
   .text-animate-hover {
     &:hover {
       color: #fff;
+    }
+  }
+}
+
+// ─── Mobile ──────────────────────────────────────────────────────────────────
+@media (max-width: 768px) {
+  .page {
+    position: relative;
+    height: auto;
+    min-height: calc(100vh - 56px);
+    overflow-x: hidden;
+  }
+
+  .container {
+    position: relative;
+    height: auto;
+    min-height: unset;
+    top: 0;
+    opacity: 1;
+    animation: fadeIn 0.4s forwards;
+    animation-delay: 0s;
+    padding-bottom: 80px;
+  }
+
+  .tags { display: none; }
+
+  .about-page,
+  .projects-page,
+  .contact-page {
+    h1 {
+      font-size: 36px;
+      margin-bottom: 24px;
+    }
+
+    .text-zone {
+      position: static;
+      width: auto;
+      transform: none;
+      left: auto;
+      top: auto;
+      display: block;
+      max-height: none;
+      padding: 40px 24px 20px;
     }
   }
 }

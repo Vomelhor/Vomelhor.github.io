@@ -16,6 +16,10 @@
   }
 }
 
+@media (max-width: 768px) {
+  .rocket-container { display: none; }
+}
+
 .rocket-container {
   position: relative;
   left: 50%;
