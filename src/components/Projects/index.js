@@ -11,6 +11,7 @@ const GAMES = [
     id: 'snake',
     title: 'Snake',
     emoji: '🐍',
+    banner: 'banner-snake',
     description: 'Classic snake. Arrow keys or WASD. See how long you last.',
     component: Snake,
   },
@@ -18,6 +19,7 @@ const GAMES = [
     id: 'ttt',
     title: 'Tic-Tac-Toe',
     emoji: '✖',
+    banner: 'banner-ttt',
     description: "You're X. The AI is O. It has a strategy. Do you?",
     component: TicTacToe,
   },
@@ -25,6 +27,7 @@ const GAMES = [
     id: 'memory',
     title: 'Memory Match',
     emoji: '🃏',
+    banner: 'banner-memory',
     description: '8 pairs hidden across 16 cards. Flip, remember, match.',
     component: MemoryMatch,
   },
@@ -64,10 +67,12 @@ function Projects() {
         </div>
 
         <div className='games-grid'>
-          {GAMES.map(({ id, title, emoji, description, component: GameComponent }) => (
+          {GAMES.map(({ id, title, emoji, banner, description, component: GameComponent }) => (
             <div key={id} className={`game-card ${activeGame === id ? 'is-open' : ''}`}>
-              <div className='game-card-header'>
+              <div className={`game-banner ${banner}`}>
                 <span className='game-emoji'>{emoji}</span>
+              </div>
+              <div className='game-card-header'>
                 <h3 className='game-title'>{title}</h3>
                 <p className='game-desc'>{description}</p>
                 <button className='game-btn' onClick={() => toggleGame(id)}>

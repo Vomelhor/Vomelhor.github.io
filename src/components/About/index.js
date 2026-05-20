@@ -40,27 +40,13 @@ const About = () => {
             I'm always looking for interesting problems to work on and people who take craft seriously. If that sounds like your team, let's talk — check out the <Link to='/contact'>contact</Link> page and reach out.
           </p>
         </div>
-        <div className='stage-cube-cont'>
-          <div className='cubespinner'>
-            <div className='face1'>
-              <img src={foto2} alt='foto2' />
-            </div>
-            <div className='face2'>
-              <img src={foto3} alt='foto3' />
-            </div>
-            <div className='face3'>
-              <img src={foto4} alt='foto4' />
-            </div>
-            <div className='face4'>
-              <img src={foto5} alt='foto5' />
-            </div>
-            <div className='face5'>
-              <img src={foto6} alt='foto6' />
-            </div>
-            <div className='face6'>
-              <img src={foto7} alt='foto7' />
-            </div>
-          </div>
+        <div className='photo-mosaic'>
+          <div className='photo-item pi-1'><img src={foto2} alt='' /></div>
+          <div className='photo-item pi-2'><img src={foto3} alt='' /></div>
+          <div className='photo-item pi-3'><img src={foto4} alt='' /></div>
+          <div className='photo-item pi-4'><img src={foto5} alt='' /></div>
+          <div className='photo-item pi-5'><img src={foto6} alt='' /></div>
+          <div className='photo-item pi-6'><img src={foto7} alt='' /></div>
         </div>
       </div>
       <Loader type='pacman' />

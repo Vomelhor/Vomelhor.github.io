@@ -1,15 +1,23 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import './index.scss';
 
-const GRID = 18;
+const GRID = 20;
 const CELL = 20;
 const INITIAL_SPEED = 140;
+const W = GRID * CELL;
 
 const randomFood = (snake) => {
   while (true) {
     const pos = { x: Math.floor(Math.random() * GRID), y: Math.floor(Math.random() * GRID) };
     if (!snake.some((s) => s.x === pos.x && s.y === pos.y)) return pos;
   }
+};
+
+const eyeOffsets = (dir) => {
+  if (dir.x === 1)  return [{ dx:  5, dy: -4 }, { dx:  5, dy:  4 }];
+  if (dir.x === -1) return [{ dx: -5, dy: -4 }, { dx: -5, dy:  4 }];
+  if (dir.y === -1) return [{ dx: -4, dy: -5 }, { dx:  4, dy: -5 }];
+  return                    [{ dx: -4, dy:  5 }, { dx:  4, dy:  5 }];
 };
 
 const Snake = () => {
@@ -24,26 +32,73 @@ const Snake = () => {
     const canvas = canvasRef.current;
     if (!canvas || !stateRef.current) return;
     const ctx = canvas.getContext('2d');
-    const { snake, food } = stateRef.current;
+    const { snake, food, dir } = stateRef.current;
 
-    ctx.fillStyle = '#111118';
-    ctx.fillRect(0, 0, GRID * CELL, GRID * CELL);
+    // Background
+    ctx.fillStyle = '#0d0d14';
+    ctx.fillRect(0, 0, W, W);
 
-    ctx.fillStyle = '#8942f9';
+    // Dot grid
+    ctx.fillStyle = 'rgba(255,255,255,0.04)';
+    for (let x = 0; x <= GRID; x++) {
+      for (let y = 0; y <= GRID; y++) {
+        ctx.beginPath();
+        ctx.arc(x * CELL, y * CELL, 1, 0, Math.PI * 2);
+        ctx.fill();
+      }
+    }
+
+    // Food glow
+    const fx = food.x * CELL + CELL / 2;
+    const fy = food.y * CELL + CELL / 2;
+    const glow = ctx.createRadialGradient(fx, fy, 0, fx, fy, CELL);
+    glow.addColorStop(0,   'rgba(192,132,252,0.55)');
+    glow.addColorStop(0.5, 'rgba(137,66,249,0.25)');
+    glow.addColorStop(1,   'rgba(137,66,249,0)');
+    ctx.fillStyle = glow;
+    ctx.fillRect(food.x * CELL - CELL * 0.5, food.y * CELL - CELL * 0.5, CELL * 2, CELL * 2);
+
+    // Food dot
+    ctx.fillStyle = '#c084fc';
     ctx.beginPath();
-    ctx.roundRect(food.x * CELL + 3, food.y * CELL + 3, CELL - 6, CELL - 6, 4);
+    ctx.arc(fx, fy, CELL * 0.32, 0, Math.PI * 2);
     ctx.fill();
 
-    snake.forEach((seg, i) => {
-      ctx.fillStyle = i === 0 ? '#c084fc' : '#7c3aed';
+    // Snake body (tail → neck, skip head)
+    for (let i = snake.length - 1; i >= 1; i--) {
+      const t = i / snake.length;
+      const r = Math.round(80 + (124 - 80) * (1 - t));
+      const g = Math.round(30 + (66 - 30) * (1 - t));
+      const b = Math.round(140 + (249 - 140) * (1 - t));
+      ctx.fillStyle = `rgb(${r},${g},${b})`;
       ctx.beginPath();
-      ctx.roundRect(seg.x * CELL + 1, seg.y * CELL + 1, CELL - 2, CELL - 2, 3);
+      ctx.roundRect(snake[i].x * CELL + 2, snake[i].y * CELL + 2, CELL - 4, CELL - 4, 4);
+      ctx.fill();
+    }
+
+    // Head with glow
+    const head = snake[0];
+    ctx.shadowBlur = 14;
+    ctx.shadowColor = '#c084fc';
+    ctx.fillStyle = '#e9d5ff';
+    ctx.beginPath();
+    ctx.roundRect(head.x * CELL + 1, head.y * CELL + 1, CELL - 2, CELL - 2, 5);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+
+    // Eyes
+    const hcx = head.x * CELL + CELL / 2;
+    const hcy = head.y * CELL + CELL / 2;
+    ctx.fillStyle = '#1a0d2e';
+    eyeOffsets(dir).forEach(({ dx, dy }) => {
+      ctx.beginPath();
+      ctx.arc(hcx + dx, hcy + dy, 2.2, 0, Math.PI * 2);
       ctx.fill();
     });
   }, []);
 
   const start = useCallback(() => {
-    const initialSnake = [{ x: 9, y: 9 }, { x: 8, y: 9 }, { x: 7, y: 9 }];
+    const initialSnake = [{ x: 10, y: 10 }, { x: 9, y: 10 }, { x: 8, y: 10 }];
     stateRef.current = {
       snake: initialSnake,
       dir: { x: 1, y: 0 },
@@ -93,7 +148,7 @@ const Snake = () => {
         s.snake.unshift(head);
         if (head.x === s.food.x && head.y === s.food.y) {
           s.score += 10;
-          s.speed = Math.max(75, s.speed - 2);
+          s.speed = Math.max(70, s.speed - 2);
           s.food = randomFood(s.snake);
           setScore(s.score);
         } else {
@@ -115,7 +170,7 @@ const Snake = () => {
     <div className='snake-game'>
       <div className='snake-score'>Score: {score}</div>
       <div className='snake-wrap'>
-        <canvas ref={canvasRef} width={GRID * CELL} height={GRID * CELL} />
+        <canvas ref={canvasRef} width={W} height={W} />
         {phase !== 'running' && (
           <div className='snake-overlay' onClick={start}>
             {phase === 'dead' && <p className='snake-result'>Game over — {score} pts</p>}
