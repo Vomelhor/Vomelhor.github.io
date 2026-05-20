@@ -1,12 +1,12 @@
 import './index.scss';
 import AnimatedLetters from '../AnimatedLetters';
 import { useEffect, useState } from 'react';
-import foto1 from '../../assets/images/foto1.jpg';
 import foto2 from '../../assets/images/foto2.jpg';
 import foto3 from '../../assets/images/foto3.jpeg';
 import foto4 from '../../assets/images/foto4.jpg';
-import foto5 from '../../assets/images/foto5.jpeg';
-import foto6 from '../../assets/images/foto6.jpeg';
+import foto5 from '../../assets/images/1BC5089A-036A-45CC-A040-141DDE451EF4_1_105_c.jpeg';
+import foto6 from '../../assets/images/6A73408F-3AC7-4640-AABD-08CCEEDECD5A_1_102_o.jpeg';
+import foto7 from '../../assets/images/8617D6E2-15AF-4F9C-8D8F-2EE05FC06D0F_1_102_o.jpeg';
 import Loader from 'react-loaders';
 import { Link } from 'react-router-dom';
 
@@ -43,22 +43,22 @@ const About = () => {
         <div className='stage-cube-cont'>
           <div className='cubespinner'>
             <div className='face1'>
-              <img src={foto1} alt='foto1' />
-            </div>
-            <div className='face2'>
               <img src={foto2} alt='foto2' />
             </div>
-            <div className='face3'>
+            <div className='face2'>
               <img src={foto3} alt='foto3' />
             </div>
-            <div className='face4'>
+            <div className='face3'>
               <img src={foto4} alt='foto4' />
             </div>
-            <div className='face5'>
+            <div className='face4'>
               <img src={foto5} alt='foto5' />
             </div>
-            <div className='face6'>
+            <div className='face5'>
               <img src={foto6} alt='foto6' />
+            </div>
+            <div className='face6'>
+              <img src={foto7} alt='foto7' />
             </div>
           </div>
         </div>
